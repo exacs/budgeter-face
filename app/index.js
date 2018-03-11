@@ -1,16 +1,24 @@
 /**
  * The Web Application written in Koa
  */
+const path = require('path');
 const Koa = require('koa');
 const _ = require('koa-route');
+const render = require('koa-ejs');
 const app = new Koa();
 
+render(app, {
+  root: path.join(__dirname, 'view'),
+  layout: false,
+  viewExt: 'ejs'
+});
+
 app.use(_.get('/private', async ctx => {
-  ctx.body = 'GET /private';
+  await ctx.render('private');
 }));
 
 app.use(_.get('/login', async ctx => {
-  ctx.body = 'GET /login';
+  await ctx.render('login');
 }));
 
 app.use(_.post('/login', async ctx => {
@@ -18,7 +26,7 @@ app.use(_.post('/login', async ctx => {
 }));
 
 app.use(_.get('/confirm', async ctx => {
-  ctx.body = 'GET /confirm';
+  await ctx.render('confirm');
 }));
 
 
