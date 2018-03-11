@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:exacs/budgeter-face.git",
   "author": "Carlos Saito <c.saito.style@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.5.0"
+  }
 }
