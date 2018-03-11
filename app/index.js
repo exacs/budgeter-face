@@ -5,6 +5,9 @@ const path = require('path');
 const Koa = require('koa');
 const _ = require('koa-route');
 const render = require('koa-ejs');
+const serve = require('koa-static');
+const mount = require('koa-mount');
+
 const app = new Koa();
 
 render(app, {
@@ -12,6 +15,11 @@ render(app, {
   layout: false,
   viewExt: 'ejs'
 });
+
+app.use(mount(
+  '/static',
+  serve(path.join(__dirname, 'static'))
+));
 
 app.use(_.get('/private', async ctx => {
   await ctx.render('private');
