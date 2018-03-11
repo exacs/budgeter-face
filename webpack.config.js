@@ -5,5 +5,15 @@ module.exports = {
   output: {
     filename: 'login.bundle.js',
     path: path.resolve(__dirname, 'app/static')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: [
+          'babel-loader'
+        ]
+      }
+    ]
   }
 };
