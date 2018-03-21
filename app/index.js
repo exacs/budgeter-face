@@ -37,9 +37,4 @@ app.use(_.get('/confirm', async ctx => {
   await ctx.render('confirm');
 }));
 
-
-app.use(async ctx => {
-  ctx.body = 'Hello World';
-});
-
 module.exports = app;
