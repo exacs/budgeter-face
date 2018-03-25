@@ -17,16 +17,19 @@ class LoginForm extends React.Component {
       phase: ASK_EMAIL
     };
 
+    this.handleLoginSuccess = this.handleLoginSuccess.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    socket.on('login_success', this.handleLoginSuccess);
+  }
+
+  handleLoginSuccess() {
+    this.setState({ phase: SUCCESS });
   }
 
   handleSubmit(email) {
     socket.emit('login', email);
     this.setState({ phase: WAIT_CODE });
-
-    socket.on('login_success', () => {
-      this.setState({ phase: SUCESS });
-    });
   }
 
   render() {

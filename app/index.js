@@ -9,6 +9,8 @@ const serve = require('koa-static');
 const mount = require('koa-mount');
 const koaBody = require('koa-body');
 
+const confirm = require('./endpoints/confirm');
+
 const app = new Koa();
 
 render(app, {
@@ -33,10 +35,6 @@ app.use(
   })
 );
 
-app.use(
-  _.get('/confirm', async ctx => {
-    await ctx.render('confirm');
-  })
-);
+app.use(_.get('/confirm', confirm));
 
 module.exports = app;

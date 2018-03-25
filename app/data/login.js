@@ -14,11 +14,12 @@ function generateCode() {
   if (sockets[code]) {
     return generateCode();
   } else {
+    console.log('CODE', code);
     return Promise.resolve(code);
   }
 }
 
-function saveCode(email, code) {
+function saveCode(email, code, socket) {
   sockets[code] = {
     email,
     socket
@@ -33,7 +34,7 @@ function sendCode(email, code) {
 async function loginWithEmail(email, socket) {
   return checkEmail(email)
     .then(generateCode)
-    .then(code => saveCode(email, code))
+    .then(code => saveCode(email, code, socket))
     .then(code => sendCode(email, code));
 }
 
@@ -43,8 +44,9 @@ function confirmCode(email, code) {
     delete sockets[code];
 
     return socket;
+  } else {
+    return null;
   }
-  return null;
 }
 
 module.exports = {
