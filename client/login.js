@@ -4,4 +4,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(<div>Hello World</div>, document.getElementById('root'));
+import LoginForm from './scenes/login-form';
+
+ReactDOM.render(<LoginForm />, document.getElementById('root'));
