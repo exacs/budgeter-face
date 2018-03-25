@@ -1,11 +1,14 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
+import io from 'socket.io-client';
 
 import EmailForm from '../components/email-form';
 
 const ASK_EMAIL = 0;
 const WAIT_CODE = 1;
 const SUCCESS = 2;
+
+const socket = io();
 
 class LoginForm extends React.Component {
   constructor(props) {

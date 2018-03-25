@@ -12,7 +12,8 @@
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
     "koa": "^2.5.0",
-    "koa-body": "^2.5.0"
+    "koa-body": "^2.5.0",
+    "socket.io": "^2.0.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
