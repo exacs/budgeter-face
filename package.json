@@ -10,7 +10,8 @@
   "author": "Carlos Saito <c.saito.style@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "koa": "^2.5.0"
+    "koa": "^2.5.0",
+    "koa-body": "^2.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

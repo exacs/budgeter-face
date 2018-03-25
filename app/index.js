@@ -7,6 +7,9 @@ const _ = require('koa-route');
 const render = require('koa-ejs');
 const serve = require('koa-static');
 const mount = require('koa-mount');
+const koaBody = require('koa-body');
+
+const login = require('./endpoints/login');
 
 const app = new Koa();
 
@@ -15,6 +18,8 @@ render(app, {
   layout: false,
   viewExt: 'ejs'
 });
+
+app.use(koaBody());
 
 app.use(mount(
   '/static',
@@ -29,9 +34,7 @@ app.use(_.get('/login', async ctx => {
   await ctx.render('login');
 }));
 
-app.use(_.post('/login', async ctx => {
-  ctx.body = 'POST /login';
-}));
+app.use(_.post('/login', login));
 
 app.use(_.get('/confirm', async ctx => {
   await ctx.render('confirm');
