@@ -22,7 +22,7 @@ function saveCode(email, code) {
   sockets[code] = {
     email,
     socket
-  }
+  };
   return Promise.resolve(code);
 }
 
@@ -50,4 +50,4 @@ function confirmCode(email, code) {
 module.exports = {
   loginWithEmail,
   confirmCode
-}
+};

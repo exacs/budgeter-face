@@ -15,7 +15,7 @@ class LoginForm extends React.Component {
 
     this.state = {
       phase: ASK_EMAIL
-    }
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }

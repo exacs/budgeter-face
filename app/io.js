@@ -1,7 +1,7 @@
 const socketIO = require('socket.io');
 const { loginWithEmail } = require('./data/login');
 
-module.exports = function (http) {
+module.exports = function(http) {
   const io = socketIO(http);
 
   io.on('connection', socket => {
@@ -15,4 +15,4 @@ module.exports = function (http) {
       await loginWithEmail(email, socket);
     });
   });
-}
+};
