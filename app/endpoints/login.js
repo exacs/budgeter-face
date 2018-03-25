@@ -11,7 +11,7 @@ function checkEmail(email) {
  * Generate a random code
  */
 function generateCode() {
-  return Promise.resolve(Math.floor(Math.random()*10000));
+  return Promise.resolve(Math.floor(Math.random() * 10000));
 }
 
 /**
@@ -28,18 +28,17 @@ function sendCode(email, code) {
   return Promise.resolve();
 }
 
-
 /**
  * Endpoint for "login"
  */
-module.exports = async function login (ctx) {
+module.exports = async function login(ctx) {
   console.log('ENDPOINT login');
   if (!ctx.is('json')) {
     console.log('JSON not given');
     ctx.status = 406;
     ctx.body = {
       message: 'Only JSON is accepted'
-    }
+    };
     return;
   }
   const email = 'hi@example.com';
@@ -57,5 +56,5 @@ module.exports = async function login (ctx) {
   ctx.status = 200;
   ctx.body = {
     message: 'Success. An e-mail is sent with the login code'
-  }
-}
+  };
+};

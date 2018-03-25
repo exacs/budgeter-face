@@ -21,23 +21,26 @@ render(app, {
 
 app.use(koaBody());
 
-app.use(mount(
-  '/static',
-  serve(path.join(__dirname, 'static'))
-));
+app.use(mount('/static', serve(path.join(__dirname, 'static'))));
 
-app.use(_.get('/private', async ctx => {
-  await ctx.render('private');
-}));
+app.use(
+  _.get('/private', async ctx => {
+    await ctx.render('private');
+  })
+);
 
-app.use(_.get('/login', async ctx => {
-  await ctx.render('login');
-}));
+app.use(
+  _.get('/login', async ctx => {
+    await ctx.render('login');
+  })
+);
 
 app.use(_.post('/login', login));
 
-app.use(_.get('/confirm', async ctx => {
-  await ctx.render('confirm');
-}));
+app.use(
+  _.get('/confirm', async ctx => {
+    await ctx.render('confirm');
+  })
+);
 
 module.exports = app;

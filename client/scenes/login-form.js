@@ -14,9 +14,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    return (
-      <EmailForm onSubmit={this.handleSubmit} />
-    );
+    return <EmailForm onSubmit={this.handleSubmit} />;
   }
 }
 
