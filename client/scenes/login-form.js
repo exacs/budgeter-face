@@ -1,5 +1,4 @@
 import React from 'react';
-import fetch from 'isomorphic-fetch';
 import io from 'socket.io-client';
 
 import EmailForm from '../components/email-form';
@@ -22,21 +21,12 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(email) {
-    const options = {
-      method: 'post',
-      body: {
-        email
-      },
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      })
-    }
+    socket.emit('login', email);
+    this.setState({ phase: WAIT_CODE });
 
-    fetch('/login', options)
-      .then(response => response.json())
-      .then(json => {
-        this.setState({phase: WAIT_CODE});
-      });
+    socket.on('login_success', () => {
+      this.setState({ phase: SUCESS });
+    });
   }
 
   render() {

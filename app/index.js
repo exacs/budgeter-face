@@ -9,8 +9,6 @@ const serve = require('koa-static');
 const mount = require('koa-mount');
 const koaBody = require('koa-body');
 
-const login = require('./endpoints/login');
-
 const app = new Koa();
 
 render(app, {
@@ -34,8 +32,6 @@ app.use(
     await ctx.render('login');
   })
 );
-
-app.use(_.post('/login', login));
 
 app.use(
   _.get('/confirm', async ctx => {
