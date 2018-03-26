@@ -10,6 +10,10 @@ function checkEmail(email) {
 }
 
 function generateCode() {
+  if (process.env.NODE_ENV === 'development') {
+    return Promise.resolve(1111);
+  }
+
   const code = Math.floor(Math.random() * 10000);
   if (sockets[code]) {
     return generateCode();
