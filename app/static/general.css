@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body, html {
@@ -11,6 +12,6 @@ body {
   margin: 0;
 }
 
-.root {
+#root {
   height: 100%;
 }
