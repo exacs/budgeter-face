@@ -3,7 +3,7 @@ const io = require('./app/io');
 
 if (process.env.NODE_ENV === 'development') {
   const middleware = require('koa-webpack');
-  const config = require('./webpack.config.js');
+  const config = require('./webpack.dev.js');
   app.use(middleware({
     config: config
   }));
