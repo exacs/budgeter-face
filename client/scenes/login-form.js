@@ -15,6 +15,23 @@ const Container = styled.main`
   height: 100%;
 `;
 
+const MessageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+`;
+
+const Message = styled.div`
+  width: 100%;
+  padding: 32px;
+  max-width: 512px;
+  border: 1px solid #000;
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+  margin: auto;
+  text-align: center;
+`;
+
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -46,8 +63,17 @@ class LoginForm extends React.Component {
   render() {
     const component = [
       <EmailForm onSubmit={this.handleSubmit} />,
-      <div>We have sent you an e-mail with a magic link. Open it to login</div>,
-      <div>Success!</div>
+      <MessageContainer>
+        <Message>
+          We have sent you an e-mail with a magic link. Open it to login
+        </Message>
+      </MessageContainer>,
+      <MessageContainer>
+        <Message>
+          <h2>Login success!</h2>
+          <p>Redirecting...</p>
+        </Message>
+      </MessageContainer>
     ][this.state.phase];
 
     return <Container>{component}</Container>;

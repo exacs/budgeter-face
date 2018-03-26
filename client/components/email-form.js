@@ -29,6 +29,8 @@ const Input = styled.input`
   font-size: 1.2rem;
   width: 100%;
   color: #000;
+  outline: none;
+  text-align: center;
 `;
 
 const Submit = styled.input`
@@ -69,9 +71,11 @@ class EmailForm extends React.Component {
           <Title>Write your e-mail address to log in</Title>
           <Form onSubmit={this.handleSubmit}>
             <label>
-              <Input type="text"
+              <Input
+                type="text"
+                placeholder="example@domain.com"
                 type="email"
-                autocorrect="off"
+                autoComplete="off"
                 name="email"
                 onChange={this.handleChange}
               />
