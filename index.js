@@ -1,8 +1,15 @@
-const Koa = require('koa');
-const app = new Koa();
+const app = require('./app');
+const io = require('./app/io');
 
-app.use(async ctx => {
-  ctx.body = 'Hello World';
-});
+if (process.env.NODE_ENV === 'development') {
+  const middleware = require('koa-webpack');
+  const config = require('./webpack.config.js');
+  app.use(middleware({
+    config: config
+  }));
+}
 
-app.listen(3000);
+const http = require('http').Server(app.callback());
+
+io(http);
+http.listen(3000);
