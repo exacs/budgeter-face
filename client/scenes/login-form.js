@@ -1,6 +1,7 @@
 import React from 'react';
 import io from 'socket.io-client';
 import Cookies from 'js-cookie';
+import styled from 'styled-components';
 
 import EmailForm from '../components/email-form';
 
@@ -9,6 +10,10 @@ const WAIT_CODE = 1;
 const SUCCESS = 2;
 
 const socket = io();
+
+const Container = styled.main`
+  height: 100%;
+`;
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -45,7 +50,7 @@ class LoginForm extends React.Component {
       <div>Success!</div>
     ][this.state.phase];
 
-    return <div>{component}</div>;
+    return <Container>{component}</Container>;
   }
 }
 
