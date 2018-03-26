@@ -4,7 +4,7 @@ module.exports = async ctx => {
   const correct = await checkToken(token);
 
   if (correct) {
-    await ctx.render('private');
+    await ctx.render('dashboard');
   } else {
     ctx.redirect('/login');
   }

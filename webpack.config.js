@@ -1,10 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  entry: ['webpack-hot-middleware/client', './client/login.js'],
+  entry: {
+    login: ['webpack-hot-middleware/client', './client/login.js'],
+    dashboard: ['webpack-hot-middleware/client', './client/dashboard.js']
+  },
 
   output: {
-    filename: 'login.bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'app/static'),
     publicPath: '/static'
   },

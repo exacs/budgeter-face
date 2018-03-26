@@ -10,7 +10,7 @@ const mount = require('koa-mount');
 const koaBody = require('koa-body');
 
 const confirm = require('./endpoints/confirm');
-const privateArea = require('./endpoints/private');
+const dashboard = require('./endpoints/dashboard');
 
 const app = new Koa();
 
@@ -24,7 +24,7 @@ app.use(koaBody());
 
 app.use(mount('/static', serve(path.join(__dirname, 'static'))));
 
-app.use(_.get('/private', privateArea));
+app.use(_.get('/dashboard', dashboard));
 
 app.use(
   _.get('/login', async ctx => {
