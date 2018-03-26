@@ -1,12 +1,13 @@
-const middleware = require('koa-webpack');
-const config = require('./webpack.config.js');
-
 const app = require('./app');
 const io = require('./app/io');
 
-app.use(middleware({
-  config: config
-}));
+if (process.env.NODE_ENV === 'development') {
+  const middleware = require('koa-webpack');
+  const config = require('./webpack.config.js');
+  app.use(middleware({
+    config: config
+  }));
+}
 
 const http = require('http').Server(app.callback());
 
