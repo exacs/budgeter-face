@@ -5,11 +5,11 @@ module.exports = async ctx => {
   const code = ctx.request.query.code;
   console.log(email, code);
 
-  const socket = confirmCode(email, code);
+  const { socket, token } = confirmCode(email, code);
 
   if (socket) {
     console.log('ENDPOINT confirm > Login success');
-    socket.emit('login_success');
+    socket.emit('login_success', token);
   } else {
     console.log('ENDPOINT confirm > Not valid code or email');
   }

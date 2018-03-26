@@ -47,13 +47,18 @@ function confirmCode(email, code) {
     const socket = sockets[code].socket;
     delete sockets[code];
 
-    return socket;
+    return { socket, token: 'secret' };
   } else {
     return null;
   }
 }
 
+function checkToken(token) {
+  return Promise.resolve(token === 'secret');
+}
+
 module.exports = {
   loginWithEmail,
-  confirmCode
+  confirmCode,
+  checkToken
 };

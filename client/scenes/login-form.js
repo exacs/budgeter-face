@@ -1,5 +1,6 @@
 import React from 'react';
 import io from 'socket.io-client';
+import Cookies from 'js-cookie';
 
 import EmailForm from '../components/email-form';
 
@@ -23,8 +24,13 @@ class LoginForm extends React.Component {
     socket.on('login_success', this.handleLoginSuccess);
   }
 
-  handleLoginSuccess() {
+  handleLoginSuccess(code) {
+    Cookies.set('access_token', code);
     this.setState({ phase: SUCCESS });
+
+    setTimeout(() => {
+      location.href = '/private';
+    }, 1000);
   }
 
   handleSubmit(email) {
