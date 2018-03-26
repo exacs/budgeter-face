@@ -5,6 +5,8 @@
   "repository": "git@github.com:exacs/budgeter-face.git",
   "scripts": {
     "prettier": "prettier --single-quote --write \"{app,client}/**/*.js\"",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development node index.js",
     "build": "webpack"
   },
   "author": "Carlos Saito <c.saito.style@gmail.com>",
