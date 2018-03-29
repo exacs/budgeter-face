@@ -1,6 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 import { hot } from 'react-hot-loader';
 
-const App = () => <div>Hello world!</div>;
+import CreateBudget from './create-budget';
+
+const App = () => <CreateBudget />;
 
 export default hot(module)(App);
