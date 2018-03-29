@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Stepper from '../components/stepper';
+
 const Container = styled.div`
   max-width: 720px;
   margin: auto;
@@ -12,7 +14,12 @@ class CreateBudget extends React.Component {
       <Container>
         <header>
           <h1>Create your budget</h1>
-          <div>Step 1 - Step 2</div>
+          <div>
+            <Stepper
+              steps={['The big picture', 'Current month']}
+              current={1}
+            />
+          </div>
         </header>
         <main>
         </main>
