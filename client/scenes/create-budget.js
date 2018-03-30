@@ -8,6 +8,9 @@ const Container = styled.div`
   max-width: 720px;
   margin: auto;
   padding: 16px;
+  @media all and (min-width: 375px) {
+    padding: 16px 24px;
+  }
 `;
 
 const Section = styled.section`
@@ -29,7 +32,6 @@ const SectionSubtitle = styled.small`
 const SectionMain = styled.div`
   padding: 24px 0px;
   color: #333;
-  font-size: 1.5rem;
 `;
 
 const Input = styled.input`
