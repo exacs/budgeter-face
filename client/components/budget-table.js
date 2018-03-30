@@ -1,4 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Add = styled.button`
+  color: #333;
+  font-size: 18px;
+  border: none;
+  background: none;
+`;
+
+const Icon = styled.i`
+  vertical-align: middle;
+`;
+
+const Label = styled.span`
+  vertical-align: middle;
+  font-weight: bold;
+`;
 
 class BudgetTable extends React.Component {
   constructor(props) {
@@ -7,24 +24,10 @@ class BudgetTable extends React.Component {
 
   render() {
     return (
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <select>
-                {
-                  this.props.options.map(opt => (
-                    <option value={opt} key={opt}>{opt}</option>
-                  ))
-                }
-              </select>
-            </td>
-            <td>
-              <input type='number' />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <Add>
+        <Icon className="material-icons">add</Icon>
+        <Label>Add service</Label>
+      </Add>
     );
   }
 }
