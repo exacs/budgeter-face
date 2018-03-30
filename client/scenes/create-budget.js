@@ -39,6 +39,10 @@ const Input = styled.input`
   width: 10rem;
 `;
 
+const HiddenMain = styled.main`
+  display: none;
+`;
+
 class CreateBudget extends React.Component {
   render() {
     return (
@@ -78,8 +82,10 @@ class CreateBudget extends React.Component {
               />
             </SectionMain>
           </Section>
+        </main>
+        <HiddenMain>
+          <h2>Regular expenses</h2>
           <section>
-            <h2>Regular expenses</h2>
             <h3>Fast-moving consumable goods</h3>
             <p>Food, cleaning products...</p>
             <p>Weekly <Input type='number' /> SEK</p>
@@ -108,7 +114,7 @@ class CreateBudget extends React.Component {
             <p>Reparations, medicines...</p>
             <p>Weekly <Input type='number' /> SEK</p>
           </section>
-        </main>
+        </HiddenMain>
       </Container>
     );
   }
