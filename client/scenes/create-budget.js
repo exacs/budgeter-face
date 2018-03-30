@@ -7,10 +7,11 @@ import BudgetTable from '../components/budget-table';
 const Container = styled.div`
   max-width: 720px;
   margin: auto;
+  padding: 16px;
 `;
 
 const Section = styled.section`
-  padding: 24px;
+  padding: 24px 0;
 `;
 
 const SectionTitle = styled.h2`
@@ -26,7 +27,7 @@ const SectionSubtitle = styled.small`
 `;
 
 const SectionMain = styled.div`
-  padding: 24px 16px;
+  padding: 24px 0px;
   color: #333;
   font-size: 1.5rem;
 `;
@@ -49,7 +50,7 @@ class CreateBudget extends React.Component {
       <Container>
         <header>
           <h1>Create your budget</h1>
-          <div>
+          <div style={{display: 'none'}}>
             <Stepper
               steps={[
                 'Fixed expenses',
